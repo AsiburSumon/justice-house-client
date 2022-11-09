@@ -1,16 +1,23 @@
 import React, { useContext, useState } from "react";
-import { Form, Link } from "react-router-dom";
+import {  Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import LoginWithProvider from "../LoginWithProvider/LoginWithProvider";
 
 const Login = () => {
   const [error, setError] = useState('');
   const {signIn} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || '/';
+
 
   const handleSignIn = event => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    
 
     signIn(email, password)
     .then(result => {
@@ -18,6 +25,7 @@ const Login = () => {
       console.log(user);
       setError('');
       form.reset();
+      navigate(from, { replace: true })
     })
     .catch(error => {
       console.log(error)
@@ -71,6 +79,9 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
+            </div>
+            <div>
+              <LoginWithProvider></LoginWithProvider>
             </div>
             <p className="text-red-500">{error}</p>
           </div>

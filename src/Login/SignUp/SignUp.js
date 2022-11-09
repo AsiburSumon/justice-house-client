@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const SignUp = () => {
     const [error, setError] = useState('');
     const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname || '/';
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -19,6 +23,7 @@ const SignUp = () => {
             console.log(user);
             setError('');
             form.reset();
+            navigate(from, { replace: true })
         })
         .catch( error => {
             console.error(error);
