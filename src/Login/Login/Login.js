@@ -1,9 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Form, Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Login = () => {
+  const [error, setError] = useState('');
+  const {signIn} = useContext(AuthContext);
+
+  const handleSignIn = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+      setError('');
+      form.reset();
+    })
+    .catch(error => {
+      console.log(error)
+      setError(error.message)
+    })
+
+  }
+
   return (
-    <form
+    <form onSubmit={handleSignIn}
      className="hero min-h-screen bg-base-200"
      style={{ backgroundImage: `url("https://prod-media-eng.dhakatribune.com/uploads/2019/08/high-court-2-1545807973809-1566489765847.jpg")` }}
      >
