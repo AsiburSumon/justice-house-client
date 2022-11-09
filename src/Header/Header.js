@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Context/AuthProvider";
 
 const Header = () => {
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+    .then(()=> {})
+    .catch(error => console.error(error))
+  }
+
   return (
     <div className="navbar bg-info">
       <div className="flex-1">
@@ -16,7 +25,23 @@ const Header = () => {
             <Link to='/services'>Services</Link>
           </li>
           <li>
-            <Link to='/login'>Login</Link>
+            {user?.uid?(
+              <>
+              <button
+              onClick={handleSignOut}
+              className="btn btn-ghost my-auto text-xl bg-red-400"
+              >
+              Log out
+              </button>
+              </>
+            )
+            :
+             (
+              <>
+                <Link to='/login'>Login</Link>
+              </>
+             ) 
+            }
           </li>
           <li>
             <Link to='/blog'>Blog</Link>
