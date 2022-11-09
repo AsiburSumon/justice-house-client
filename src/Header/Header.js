@@ -22,14 +22,12 @@ const Header = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/services'>Services</Link>
-          </li>
-          <li>
             {user?.uid?(
               <>
+              <Link className="ml-5" to='/addservice'>Add Services</Link>
               <button
               onClick={handleSignOut}
-              className="btn btn-ghost my-auto text-xl bg-red-400"
+              className="btn btn-ghost mx-5 my-auto text-xl bg-red-600"
               >
               Log out
               </button>
