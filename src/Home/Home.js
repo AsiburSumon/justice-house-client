@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import img1 from '../images/images/home/img1.jpg'
 import banner from '../images/banner/banner.png'
 import Services from "../Services/Services";
+import Certificates from "./Certificates";
 
 const Home = () => {
   return (
@@ -24,11 +26,29 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="text-center">
+
+      <div>
         <Services></Services>
       </div>
+
       <div className="text-center my-10">
         <Link to="/services"><button className="btn btn-primary">View All</button></Link>
+      </div>
+
+      <div className="mb-10">
+        <div className="hero min-h-screen bg-base-200">
+          <div className="hero-content flex-col lg:flex-row-reverse">
+              <img className="rounded-xl" src={img1} alt='error' />
+              <div className="sm:ml-5">
+                <h1 className="text-5xl font-bold">About Me</h1>
+                <p className="py-6">I am Advocate <span className="font-bold">Asibur Rahman LLB</span>. I am professional lawyer. I graduated from Harvard University. I try to provide legal services.</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h2 className="text-center font-bold text-2xl font-serif text-orange-600 ">My All Certificates</h2>
+        <Certificates></Certificates>
       </div>
     </div>
   );
