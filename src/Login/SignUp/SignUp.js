@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import LoginWithProvider from '../LoginWithProvider/LoginWithProvider';
 
 const SignUp = () => {
     const [error, setError] = useState('');
@@ -88,6 +89,9 @@ const SignUp = () => {
             </div>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Sign Up</button>
+            </div>
+            <div>
+                <LoginWithProvider></LoginWithProvider>
             </div>
             <p className="text-red-500">{error}</p>
           </div>
