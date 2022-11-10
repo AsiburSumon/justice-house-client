@@ -7,6 +7,7 @@ import SignUp from "../../Login/SignUp/SignUp";
 import AddService from "../../Services/AddService";
 import ServiceDetails from "../../Services/ServiceDetails";
 import Services from "../../Services/Services";
+import PrivateRoute from "../PrivateRoutes/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addservice',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             }
         ]
     }
