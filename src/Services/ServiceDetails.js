@@ -22,7 +22,8 @@ const ServiceDetails = () => {
       service: _id,
       reviewer: name,
       review,
-      email
+      email,
+      name: title
     }
 
     fetch('http://localhost:5000/reviews', {
@@ -61,6 +62,10 @@ const ServiceDetails = () => {
         </div>
       </div>
       
+    <div>
+
+    </div>
+
       <div className="max-w-xl mx-auto">
         <form onSubmit={handleReview}>
           <div className="card-body">

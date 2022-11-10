@@ -24,6 +24,8 @@ const Header = () => {
           <li>
             {user?.uid?(
               <>
+              <Link className="ml-5" to='/myreviews'>My Reviews</Link>
+
               <Link className="ml-5" to='/addservice'>Add Services</Link>
               <button
               onClick={handleSignOut}
