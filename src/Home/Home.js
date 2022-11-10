@@ -1,11 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import img1 from '../images/images/home/img1.jpg'
 import banner from '../images/banner/banner.png'
-import Services from "../Services/Services";
 import Certificates from "./Certificates";
+import ServiceForHome from '../Services/ServiceForHome'
 
 const Home = () => {
+  const allServices = useLoaderData();
+  
   return (
     <div>
       <div
@@ -27,8 +29,10 @@ const Home = () => {
         </div>
       </div>
 
-      <div>
-        <Services></Services>
+      <div className='grid gap-6 grid-cols-1 lg:grid-cols-3 mx-8'>
+        {
+          allServices.map(perService => <ServiceForHome key={perService._id} perService={perService}></ServiceForHome> )
+        }
       </div>
 
       <div className="text-center my-10">
