@@ -13,6 +13,7 @@ const MyReviews = () => {
       .then((data) => setReviews(data));
   }, [user?.email]);
 
+
   const handleDelete = id => {
     const procced = window.confirm('Are you sure?')
     if(procced){

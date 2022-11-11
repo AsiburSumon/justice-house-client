@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Assignment-11 JUSTICE-HOME
+
+Live Link: [https://justice-house.web.app/]
+
+## My website features
+* You can see latest service which is recently added
+* You can login with your google account and also you can signUp with email and password
+* Here you can add your reviews but for that you have to login first then you can submit your review
+* You can click on service photos by clicking you will see photo in full size
+* In title bar you can see where you are now visit in my website for that I use react-helmet-async
+* If you are not login then u can't see your reviews and can't add any service
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
