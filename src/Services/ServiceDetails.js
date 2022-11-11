@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
+import AllReviews from "../Reviews/MyReviews/AllReviews";
 
 const ServiceDetails = () => {
   const {user} = useContext(AuthContext);
@@ -63,7 +64,7 @@ const ServiceDetails = () => {
       </div>
       
     <div>
-
+      <AllReviews></AllReviews>
     </div>
 
       <div className="max-w-xl mx-auto">
@@ -91,7 +92,20 @@ const ServiceDetails = () => {
               cols="10" rows="5" placeholder="Type your review here" required></textarea>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Submit</button>
+              {!user?.uid?(
+                <>
+                <p>You have to <Link className="text-blue-600 font-bold text-xl" to="/login">Login</Link> first</p>
+                <button disabled className="btn btn-primary" >Submit</button>
+                </>
+              )
+              :
+              (
+                <>
+                <button className="btn btn-primary" >Submit</button>
+                </>
+              )
+              }
+              
             </div>
           </div>
         </form>

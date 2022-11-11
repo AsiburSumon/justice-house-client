@@ -4,6 +4,7 @@ import Home from "../../Home/Home";
 import Main from "../../Layout/Main";
 import Login from "../../Login/Login/Login";
 import SignUp from "../../Login/SignUp/SignUp";
+import AllReviews from "../../Reviews/MyReviews/AllReviews";
 import MyReviews from "../../Reviews/MyReviews/MyReviews";
 import AddService from "../../Services/AddService";
 import ServiceDetails from "../../Services/ServiceDetails";
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
             {
                 path: '/myreviews',
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
+            },
+            {
+                path: '/allreviews',
+                element: <AllReviews></AllReviews>,
+                loader: ()=>fetch(`http://localhost:5000/allreviews`)
             }
         ]
     }
