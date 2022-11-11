@@ -7,7 +7,7 @@ const ReviewRow = ({ perReview, handleDelete }) => {
   const [reviewService, setReviewService] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${service}`)
+    fetch(`https://assignment-11-server-blond.vercel.app/reviews/${service}`)
       .then((res) => res.json())
       .then((data) => setReviewService(data));
   }, [service]);

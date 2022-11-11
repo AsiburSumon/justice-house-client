@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Helmet } from "react-helmet-async";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link, useLoaderData } from "react-router-dom";
@@ -27,7 +28,7 @@ const ServiceDetails = () => {
       name: title
     }
 
-    fetch('http://localhost:5000/reviews', {
+    fetch('https://assignment-11-server-blond.vercel.app/reviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -48,6 +49,9 @@ const ServiceDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>ServiceDetail {`-JusticeHouse`}</title>
+      </Helmet>
       <div className="card card-compact w-96 bg-base-100 shadow-xl mx-auto my-10">
         <figure>
           <PhotoProvider>

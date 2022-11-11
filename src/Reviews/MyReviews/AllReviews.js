@@ -7,7 +7,7 @@ const AllReviews = () => {
     const [allReview, setAllReview] = useState([]);
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/allreviews?service=${allReviews?.service}`)
+        fetch(`https://assignment-11-server-blond.vercel.app/allreviews?service=${allReviews?.service}`)
         .then(res=> res.json())
         .then(data => {
             setAllReview(data)
