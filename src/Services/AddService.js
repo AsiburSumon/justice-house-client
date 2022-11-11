@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const [service, setService] = useState({});
@@ -34,6 +35,9 @@ const AddService = () => {
   return (
     <div className="hero min-h-screen bg-base-200"
     style={{ backgroundImage: `url("https://prod-media-eng.dhakatribune.com/uploads/2019/08/high-court-2-1545807973809-1566489765847.jpg")` }}>
+      <Helmet>
+        <title>AddServices {`-JusticeHouse`}</title>
+      </Helmet>
       <form onSubmit={handleAddService}>
       <h3 className="text-center text-white font-bold text-5xl mb-10 ">
         Here Add New Service

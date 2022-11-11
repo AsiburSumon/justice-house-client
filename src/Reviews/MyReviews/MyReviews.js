@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Context/AuthProvider";
 import ReviewRow from "./ReviewRow";
 
@@ -33,6 +34,9 @@ const MyReviews = () => {
 
   return (
     <div className="mx-10 my-20">
+      <Helmet>
+          <title>MyReviews {`-JusticeHouse`}</title>
+      </Helmet>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>

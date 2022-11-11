@@ -4,12 +4,16 @@ import img1 from '../images/images/home/img1.jpg'
 import banner from '../images/banner/banner.png'
 import Certificates from "./Certificates";
 import ServiceForHome from '../Services/ServiceForHome'
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const allServices = useLoaderData();
   
   return (
     <div>
+      <Helmet>
+        <title>Justice House</title>
+      </Helmet>
       <div
         className="hero min-h-screen mb-8 "
         style={{ backgroundImage: `url("https://prod-media-eng.dhakatribune.com/uploads/2019/08/high-court-2-1545807973809-1566489765847.jpg")` }}
